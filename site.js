@@ -50,8 +50,8 @@
         <div class="hero-stage">
           <div class="cross" aria-hidden="true"></div>
           <span class="dim" style="left:24px;top:22px">VIEW A · ISOMETRIC</span><span class="dim" style="right:24px;top:22px">SCALE 1:5</span>
-          <img src="media-about-hero-robot.webp" alt="Autonomous warehouse mobile robot — gripper mechanism and chassis finishing" width="919" height="818" fetchpriority="high">
-          <div class="cap"><span class="tg">Autonomous warehouse robot · graduation project</span><a href="#project-warehouse-robot">Open in 3D →</a></div>
+          <img src="media-about-hero-showcase.webp" alt="Selected projects together: warehouse robot, lifting frame, XY gantry, 3D scanner, sonar fixture, sealing pod, encoder fixture and spherical bearing" width="1400" height="825" fetchpriority="high" style="inset:8% 1% 9%;width:98%;height:83%">
+          <div class="cap"><span class="tg">Selected projects · MCS Group &amp; personal</span><a href="#work">See all projects →</a></div>
         </div>
       </div>
       <div class="tblock">
@@ -151,9 +151,10 @@
       <section class="ab-head">
         <div><span class="crumb">INDEX / ABOUT</span>
           <h1>Mohamed<br><span class="amber">Amr</span></h1>
-          <p class="lead">Mechatronics engineer working as a mechanical design engineer — subsea fixtures, lifting equipment and machines on one side; motors, sensors and control on the other.</p>
-          <p>B.Sc. in Mechatronics Engineering from Helwan University with grade Excellent (88.36%), ranked 2nd in the department, with an M.Sc. in Mechatronics in progress. Certified SOLIDWORKS Professional (CSWP) and SOLIDWORKS Sheet Metal Professional, working in SOLIDWORKS, CATIA V6, ANSYS and MATLAB/Simulink.</p>
-          <p>At MCS Group I design mechanical systems for subsea and petroleum applications — lifting frames, a mobile jib crane, a 300 m sealing pod, ROV fixtures and a spherical bearing — and take them through calculations, FEA and drawings to fabrication.</p>
+          <span class="tg amber" style="display:block;margin-top:26px">Professional summary</span>
+          <p class="lead" style="margin-top:10px">Mechatronics Engineer – Mechanical Design Engineer and Certified SOLIDWORKS Professional (CSWP).</p>
+          <p>Expertise in mechanical design, SolidWorks, ANSYS, stress analysis, and modeling &amp; simulation. Experienced in designing and validating subsea equipment, lifting equipment and fixtures through simulation-driven approaches, from concept to fabrication drawings.</p>
+          <p>Solid foundation in control and embedded systems, enabling collaboration across multidisciplinary teams. Seeking opportunities in mechanical design, simulation, or product development.</p>
           <div class="ctas" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:28px"><a class="btn solid" href="${esc(m.resumeUrl)}" target="_blank" rel="noopener">Résumé PDF ${AR}</a><a class="btn" href="${esc(m.contact.linkedin)}"${ext(m.contact.linkedin)}>LinkedIn ${AR}</a><a class="btn" href="${esc(m.gradBookUrl)}"${ext(m.gradBookUrl)}>Graduation project book ${AR}</a></div>
         </div>
         <figure class="ab-fig corner" style="margin:0"><img src="media-warehouse-robot-built.webp" alt="The autonomous warehouse robot from the graduation project, as built"><figcaption>FIG. 01 — GRADUATION PROJECT, AS BUILT</figcaption></figure>
