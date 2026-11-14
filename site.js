@@ -162,8 +162,13 @@
         <table class="rev reveal"><thead><tr><th>Rev</th><th>Period</th><th>Description</th></tr></thead><tbody>
         ${T.map((t, k) => `<tr class="${t.current ? 'cur' : ''}"><td class="r"><span>${String.fromCharCode(70 - k)}</span></td><td class="p">${esc(t.period)}<br><span class="tg">${esc(t.kind)}${t.current ? ' · current' : ''}</span></td><td><h4>${esc(t.title)}</h4><div class="org">${esc(t.org)}</div><ul>${t.points.map(x => `<li>${esc(x)}</li>`).join('')}</ul>${t.link ? `<a class="tg amber" href="#${t.link}">Open project →</a>` : ''}</td></tr>`).join('')}
         </tbody></table></section>
-      <section class="sec">${secH('02', 'Certifications', `<a class="btn" href="${esc(m.certificatesUrl)}"${ext(m.certificatesUrl)}>All certificates ${AR}</a>`)}
-        <div class="certs reveal">${S.certifications.map(c => `<div class="cert">${c.badge ? `<img src="${esc(c.badge)}" alt="${esc(c.name)} badge" loading="lazy">` : '<span class="tg amber">Certificate</span>'}<b>${esc(c.code)}</b><span>${esc(c.name)}</span><span class="tg">${esc(c.issuer)}</span><a href="${esc(c.verify)}"${ext(c.verify)}>View certificate ↗</a></div>`).join('')}</div>
+      <section class="sec">${secH('02', 'Certifications', `<span class="tg">${S.certifications.length} certificates · click to enlarge</span>`)}
+        <div class="certs reveal">${S.certifications.map((c, k) => `<div class="cert">
+          <button type="button" class="cimg" data-clb="${k}" aria-label="Enlarge certificate: ${esc(c.name)}"><img src="${esc(c.image)}" alt="${esc(c.name)} certificate" loading="lazy"><span class="zoom">Click to enlarge</span></button>
+          <div class="cb">${c.badge ? `<img class="badge" src="${esc(c.badge)}" alt="" loading="lazy">` : ''}<div><b>${esc(c.code)}</b><span class="nm">${esc(c.name)}</span></div></div>
+          <span class="tg">${esc(c.issuer)} · ${esc(c.date)}</span>
+          ${c.id ? `<span class="tg">ID ${esc(c.id)}</span>` : ''}
+          ${c.verify ? `<a href="${esc(c.verify)}"${ext(c.verify)}>Verify credential ↗</a>` : ''}</div>`).join('')}</div>
         <div class="two" style="margin-top:56px">
           <div class="reveal"><span class="tg">Courses</span><table class="bom" style="margin-top:12px"><thead><tr><th>Item</th><th>Course</th><th>Provider</th></tr></thead><tbody>${S.courses.map((c, k) => `<tr><td>${pad(k + 1)}</td><td>${esc(c[0])}</td><td>${esc(c[1])}${c[2] ? ' · ' + esc(c[2]) : ''}</td></tr>`).join('')}</tbody></table></div>
           <div class="reveal"><span class="tg">Skills — bill of materials</span><table class="bom" style="margin-top:12px"><thead><tr><th>Item</th><th>Group</th><th>Parts</th></tr></thead><tbody>${S.skills.map((c, k) => `<tr><td>${pad(k + 1)}</td><td>${esc(c[0])}</td><td>${esc(c[1])}</td></tr>`).join('')}</tbody></table></div>
@@ -239,12 +244,13 @@
     $$('[data-f]').forEach(b => b.addEventListener('click', () => { $('#app').innerHTML = work(b.dataset.f); wire(route); }));
     $$('tr[data-go]').forEach(r => r.addEventListener('click', e => { if (!e.target.closest('a')) location.hash = r.dataset.go; }));
     $$('[data-ref]').forEach(a => a.addEventListener('click', () => { pendingRef = a.dataset.ref; }));
-    if (route.name === 'project') {
-      const p = bySlug(route.slug), lb = $('#lb'); let k = 0;
-      const show = () => { const g = p.gallery[k]; $('#lb-img').src = g.src; $('#lb-img').alt = g.alt; $('#lb-cap').textContent = g.caption || g.alt; $('#lb-n').textContent = `${k + 1} / ${p.gallery.length}`; };
-      $$('[data-lb]').forEach(b => b.addEventListener('click', () => { k = +b.dataset.lb; show(); lb.showModal(); }));
-      $('#lb-prev').onclick = () => { k = (k - 1 + p.gallery.length) % p.gallery.length; show(); };
-      $('#lb-next').onclick = () => { k = (k + 1) % p.gallery.length; show(); };
+    const gal = route.name === 'project' ? (bySlug(route.slug) || {}).gallery : route.name === 'about' ? S.certifications.map(c => ({ src: c.image, alt: c.name + ' certificate', caption: `${c.name} — ${c.issuer}, ${c.date}` })) : null;
+    if (gal && gal.length) {
+      const lb = $('#lb'); let k = 0;
+      const show = () => { const g = gal[k]; $('#lb-img').src = g.src; $('#lb-img').alt = g.alt; $('#lb-cap').textContent = g.caption || g.alt; $('#lb-n').textContent = `${k + 1} / ${gal.length}`; };
+      $$('[data-lb],[data-clb]').forEach(b => b.addEventListener('click', () => { k = +(b.dataset.lb ?? b.dataset.clb); show(); lb.showModal(); }));
+      $('#lb-prev').onclick = () => { k = (k - 1 + gal.length) % gal.length; show(); };
+      $('#lb-next').onclick = () => { k = (k + 1) % gal.length; show(); };
       lb.onkeydown = e => { if (e.key === 'ArrowLeft') $('#lb-prev').click(); if (e.key === 'ArrowRight') $('#lb-next').click(); };
     }
     const f = $('form.msg');

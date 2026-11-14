@@ -244,10 +244,16 @@ main{margin-left:88px;min-height:100vh}
 .rev .org{color:var(--ink2);font-size:14px;margin-top:2px}
 .rev ul{margin:12px 0 0;padding-left:18px;color:var(--ink2);font-size:14.5px}
 .rev tr.cur td.r span{background:#3ddc84}
-.certs{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.certs{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .cert{border:1px solid var(--line2);padding:22px;display:flex;flex-direction:column;gap:8px;background:var(--bg2)}
-.cert img{width:76px;height:76px}
-.cert b{font-size:22px;font-weight:800}
+.cert .cimg{position:relative;display:block;width:100%;padding:0;border:1px solid var(--line);background:#fff;overflow:hidden;aspect-ratio:1.414/1;margin-bottom:8px}
+.cert .cimg img{width:100%;height:100%;object-fit:contain;transition:transform .5s}
+.cert .cimg:hover{border-color:var(--amber)}.cert .cimg:hover img{transform:scale(1.03)}
+.cert .zoom{position:absolute;right:8px;bottom:8px;background:#101316e6;color:var(--ink);font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;padding:5px 8px;opacity:0;transition:opacity .2s}
+.cert .cimg:hover .zoom,.cert .cimg:focus-visible .zoom{opacity:1}
+.cert .cb{display:flex;gap:12px;align-items:center}.cert .badge{width:52px;height:52px;flex:none}
+.cert .nm{display:block;font-size:14px;color:var(--ink2);line-height:1.35}
+.cert b{font-size:20px;font-weight:800;display:block}
 .cert a{margin-top:auto;font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--amber)}
 .bom{width:100%;border-collapse:collapse}
 .bom th{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);text-align:left;font-weight:500;padding:10px 12px;border-bottom:1px solid var(--line2);border-top:1px solid var(--line2)}
