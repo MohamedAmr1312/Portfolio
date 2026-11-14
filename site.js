@@ -50,7 +50,7 @@
         <div class="hero-stage">
           <div class="cross" aria-hidden="true"></div>
           <span class="dim" style="left:24px;top:22px">VIEW A · ISOMETRIC</span><span class="dim" style="right:24px;top:22px">SCALE 1:5</span>
-          <img src="media-about-hero-showcase.webp" alt="Selected projects together: warehouse robot, lifting frame, XY gantry, 3D scanner, sonar fixture, sealing pod, encoder fixture and spherical bearing" width="1400" height="825" fetchpriority="high" style="inset:8% 1% 9%;width:98%;height:83%">
+          <img src="media-about-hero-showcase.webp" alt="Selected projects together: warehouse robot, lifting frame, XY gantry, rack and pinion lifting mechanism, sealing pod and roller conveyor" width="1400" height="735" fetchpriority="high" style="inset:8% 1% 9%;width:98%;height:83%">
           <div class="cap"><span class="tg">Selected projects · MCS Group &amp; personal</span><a href="#work">See all projects →</a></div>
         </div>
       </div>
