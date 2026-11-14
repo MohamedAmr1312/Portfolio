@@ -50,8 +50,8 @@
         <div class="hero-stage">
           <div class="cross" aria-hidden="true"></div>
           <span class="dim" style="left:24px;top:22px">VIEW A · ISOMETRIC</span><span class="dim" style="right:24px;top:22px">SCALE 1:5</span>
-          <img src="media-about-hero-cutout.webp" alt="Encoder fixture for a subsea encoder pod" width="695" height="752" fetchpriority="high">
-          <div class="cap"><span class="tg">Encoder fixture · AISI 316 · fabricated</span><a href="#project-encoder-fixture">Open in 3D →</a></div>
+          <img src="media-about-hero-robot.webp" alt="Autonomous warehouse mobile robot — gripper mechanism and chassis finishing" width="919" height="818" fetchpriority="high">
+          <div class="cap"><span class="tg">Autonomous warehouse robot · graduation project</span><a href="#project-warehouse-robot">Open in 3D →</a></div>
         </div>
       </div>
       <div class="tblock">
